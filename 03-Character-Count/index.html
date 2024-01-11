@@ -21,10 +21,16 @@
   </head>
 
   <body>
-    <div class="container p-5">
+    <div class="container p-5" data-controller="character-count">
       <!-- TODO: Code here -->
+      <h1>Character counter</h1>
+      <input type="text"
+             class="form-control shadow-sm text-muted"
+             placeholder="Type something here"
+             data-action="keyup->character-count#countCharacters"
+             data-character-count-target="input">
+      <p class="fst-italic my-2" data-character-count-target="countText">0 characters</p>
     </div>
-
     <script src="lib/index.js" type="module"></script>
   </body>
 </html>
