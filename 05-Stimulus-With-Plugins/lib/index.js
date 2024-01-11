@@ -1,11 +1,17 @@
-/* eslint-disable import/extensions */
 import { Application } from "@hotwired/stimulus";
-// TODO: Import Chartjs external library
-
-// TODO: Import the Stimulus Controller here
+import GenderRatio from "./controllers/gender_ratio.js";
+import ReligiousCommunities from "./controllers/religious_communities.js";
+import WorldPopulation from "./controllers//world_population.js";
+import { Chart } from "chart.js";
+import * as Chartjs from "chart.js";
 
 window.Stimulus = Application.start();
 
-// TODO: Register all Chartjs controllers
+Stimulus.register('gender-ratio',GenderRatio)
+Stimulus.register('religious-communities',ReligiousCommunities)
+Stimulus.register('world-population',WorldPopulation)
 
-// TODO: Register your Stimulus Controller below
+const controllers = Object.values(Chartjs).filter(
+  (chart) => chart.id !== undefined
+);
+Chart.register(...controllers);
